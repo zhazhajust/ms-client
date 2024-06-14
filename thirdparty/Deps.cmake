@@ -13,8 +13,8 @@ FetchContent_Declare(
 
 FetchContent_Declare(
   nlnx
-  GIT_REPOSITORY    https://github.com/filoper/NoLifeNx.git
-  GIT_TAG           0f485975a5d0b430270855fa59970f6b097ea793
+  GIT_REPOSITORY    https://github.com/zhazhajust/NoLifeNx.git
+  GIT_TAG           63bf33998b7baf1e74ace41bb3d9ad02b1259375
   PREFIX            "${PROJECT_SOURCE_DIR}/thirdparty"
   SOURCE_DIR        "${PROJECT_SOURCE_DIR}/thirdparty/nlnx"
   BINARY_DIR        "${PROJECT_SOURCE_DIR}/thirdparty/nlnx-build"
@@ -31,7 +31,7 @@ FetchContent_Declare(
 FetchContent_Declare(
   asio
   GIT_REPOSITORY    https://github.com/chriskohlhoff/asio.git
-  GIT_TAG           5fb2ea03ac6df7d65fc0101745e01ecff0bbd5fe
+  # GIT_TAG           5fb2ea03ac6df7d65fc0101745e01ecff0bbd5fe
   PREFIX            "${PROJECT_SOURCE_DIR}/thirdparty"
   SOURCE_DIR        "${PROJECT_SOURCE_DIR}/thirdparty/asio"
 )
@@ -48,7 +48,7 @@ IF (WIN32)
 
     FetchContent_Declare(
       lz4
-      URL               https://github.com/lz4/lz4/archive/v1.9.3.zip
+      URL               https://github.com/lz4/lz4/archive/v1.9.4.zip
       URL_MD5           72defe037b2c3db7a69affe7fe4bffd6
       PREFIX            "${PROJECT_SOURCE_DIR}/thirdparty"
       SOURCE_DIR        "${PROJECT_SOURCE_DIR}/thirdparty/lz4"

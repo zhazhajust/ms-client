@@ -1,0 +1,60 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake Configure",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-Bbuild",
+                "-GNinja",
+                "-DCMAKE_INSTALL_PREFIX=./msclient-install"
+            ],
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "CMake Build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--config",
+                "Debug"
+            ],
+            "problemMatcher": [],
+            "group": "build",
+            "dependsOn": "CMake Configure"
+        },
+        {
+            "label": "CMake Install",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--target",
+                "install",
+                "--config",
+                "Debug"
+            ],
+            "problemMatcher": [],
+            "group": "build",
+            "dependsOn": "CMake Build"
+        },
+        {
+            "label": "CMake All",
+            "dependsOn": [
+                "CMake Configure",
+                "CMake Build",
+                "CMake Install"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

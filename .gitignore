@@ -1,5 +1,5 @@
 /.vs
-/.vscode
+# /.vscode
 /x64
 .DS_store
 out/

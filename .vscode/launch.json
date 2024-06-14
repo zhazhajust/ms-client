@@ -1,0 +1,41 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch MSClient",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/msclient-install/bin/msclient", // 替换为你的程序路径
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/msclient-install/bin", // 替换为你的工作目录
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "lldb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "CMake All", // 这里是重点，确保在调试前运行组合任务
+            // "miDebuggerPath": "/usr/bin/gdb", // 替换为你的gdb路径
+
+            // "logging": {
+            //     "engineLogging": true,
+            //     "trace": true,
+            //     "traceResponse": true
+            // },
+            // "filterStderr": true,
+            // "filterStdout": true,
+            "windows": {
+                "MIMode": "gdb",
+                "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe"
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        }
+    ]
+}
