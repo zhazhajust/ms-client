@@ -1,2 +1,12 @@
 {
+    "cmake.debugConfig": {
+        "cwd": "/Users/caijie/Documents/VScode/maple/ms-client/msclient-install/bin"
+    },
+    "cmake.configureArgs": [
+        "-Bbuild -GNinja -DCMAKE_INSTALL_PREFIX=./msclient-install"
+    ],
+    // "cmake.buildToolArgs": [
+    //     "-Bbuild -GNinja -DCMAKE_INSTALL_PREFIX=./msclient-install"
+    // ],
+    // "cmake.buildTask": true
 }
