@@ -109,6 +109,11 @@ void close_callback(GLFWwindow *window) {
     glfwSetWindowShouldClose(window, GL_FALSE);
 }
 
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+    glViewport(0, 0, width, height);
+}
+
 Error Window::init() {
     fullscreen_ = Setting<Fullscreen>::get().load();
 
@@ -122,6 +127,10 @@ Error Window::init() {
     glfwSetErrorCallback(error_callback);
     glfwWindowHint(GLFW_VISIBLE, GL_TRUE);
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+
+#ifdef __APPLE__
+    glfwWindowHint(GLFW_COCOA_RETINA_FRAMEBUFFER, GLFW_TRUE);
+#endif
 
     if (Error error = GraphicsGL::get().init()) {
         return error;
@@ -170,6 +179,13 @@ Error Window::init_window() {
     glfwSetWindowFocusCallback(glwnd_, focus_callback);
     glfwSetScrollCallback(glwnd_, scroll_callback);
     glfwSetWindowCloseCallback(glwnd_, close_callback);
+
+    // 在创建窗口后，设置回调函数
+    glfwSetFramebufferSizeCallback(glwnd_, framebuffer_size_callback);
+
+    int framebufferWidth, framebufferHeight;
+    glfwGetFramebufferSize(glwnd_, &framebufferWidth, &framebufferHeight);
+    glViewport(0, 0, framebufferWidth, framebufferHeight);
 
     std::string icon_path = get_current_working_dir() + "/Icon.png";
     GLFWimage images[1];
