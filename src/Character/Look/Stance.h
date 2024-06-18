@@ -15,6 +15,7 @@
 //	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #pragma once
 
+#include <cstdint>  // 添加这个头文件以确保uint8_t等类型可用
 #include <string>
 
 #include "../Template/EnumMap.h"

@@ -4,6 +4,8 @@ set(MSCLIENT_COMPILE_FLAGS
       $<$<AND:$<CXX_COMPILER_ID:AppleClang,$<PLATFORM_ID:Darwin>>>:-mlinker-version=505>
 )
 
+# add_compile_options(-std=c++11)
+
 add_executable(msclient
     Audio/Audio.cpp
     Character/Inventory/Equip.cpp
@@ -277,7 +279,7 @@ target_link_libraries(msclient
 
       $<$<PLATFORM_ID:Windows>:${PROJECT_SOURCE_DIR}/thirdparty/bass24/c/x64/bass.lib>
       $<$<PLATFORM_ID:Windows>:${PROJECT_SOURCE_DIR}/thirdparty/freetype/freetype-windows-binaries-2.10.2/win64/freetype.lib>
-      $<$<PLATFORM_ID:Windows>:${PROJECT_SOURCE_DIR}/thirdparty/lz4-build/lz4.lib>
+      $<$<PLATFORM_ID:Windows>:lz4_static>
       $<$<PLATFORM_ID:Windows>:glfw>
       $<$<PLATFORM_ID:Windows>:wsock32>
       $<$<PLATFORM_ID:Windows>:ws2_32>

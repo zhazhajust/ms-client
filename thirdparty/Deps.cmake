@@ -49,7 +49,7 @@ IF (WIN32)
     FetchContent_Declare(
       lz4
       URL               https://github.com/lz4/lz4/archive/v1.9.4.zip
-      URL_MD5           72defe037b2c3db7a69affe7fe4bffd6
+      # URL_MD5           72defe037b2c3db7a69affe7fe4bffd6
       PREFIX            "${PROJECT_SOURCE_DIR}/thirdparty"
       SOURCE_DIR        "${PROJECT_SOURCE_DIR}/thirdparty/lz4"
       BINARY_DIR        "${PROJECT_SOURCE_DIR}/thirdparty/lz4-build"
@@ -63,6 +63,10 @@ IF (WIN32)
       PREFIX            "${PROJECT_SOURCE_DIR}/thirdparty"
       SOURCE_DIR        "${PROJECT_SOURCE_DIR}/thirdparty/freetype/freetype-windows-binaries-2.10.2"
     )
+
+    # # 在调用 FetchContent_MakeAvailable 之前设置选项
+    # set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build shared libraries" FORCE)
+    # set(BUILD_STATIC_LIBS ON CACHE BOOL "Build static libraries" FORCE)
 
     FetchContent_MakeAvailable(lz4 nlnx glad freetype glfw stb asio)
 

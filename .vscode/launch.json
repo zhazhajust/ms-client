@@ -5,13 +5,19 @@
             "name": "Launch MSClient",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/msclient-install/bin/msclient", // 替换为你的程序路径
+            "windows":{
+                "program": "${workspaceFolder}/msclient-install/bin/msclient.exe", // 替换为你的程序路径
+                "MIMode": "gdb"
+            },
+            "osx": {
+                "program": "${workspaceFolder}/msclient-install/bin/msclient", // 替换为你的程序路径
+                "MIMode": "lldb"
+            },
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/msclient-install/bin", // 替换为你的工作目录
             "environment": [],
             "externalConsole": true,
-            "MIMode": "lldb",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -29,13 +35,6 @@
             // },
             // "filterStderr": true,
             // "filterStdout": true,
-            "windows": {
-                "MIMode": "gdb",
-                "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe"
-            },
-            "osx": {
-                "MIMode": "lldb"
-            }
         }
     ]
 }
