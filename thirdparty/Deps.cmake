@@ -64,10 +64,6 @@ IF (WIN32)
       SOURCE_DIR        "${PROJECT_SOURCE_DIR}/thirdparty/freetype/freetype-windows-binaries-2.10.2"
     )
 
-    # # 在调用 FetchContent_MakeAvailable 之前设置选项
-    # set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build shared libraries" FORCE)
-    # set(BUILD_STATIC_LIBS ON CACHE BOOL "Build static libraries" FORCE)
-
     FetchContent_MakeAvailable(lz4 nlnx glad freetype glfw stb asio)
 
 ELSE()
