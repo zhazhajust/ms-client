@@ -25,10 +25,8 @@ constexpr uint16_t TIMESTEP = 8;
 
 class Constants : public Singleton<Constants> {
 public:
-    Constants() {
-        VIEWWIDTH = 800;
-        VIEWHEIGHT = 600;
-    };
+
+    Constants(): Singleton<Constants>(), VIEWWIDTH(800), VIEWHEIGHT(600){};
 
     ~Constants() override = default;
 

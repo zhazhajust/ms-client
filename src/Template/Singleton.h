@@ -21,14 +21,13 @@ class Singleton {
 public:
     virtual ~Singleton() = default;
 
-    static T &get() { return instance_; }
+    static T& get() {
+        static T instance_;  // 确保静态实例在首次使用时被正确初始化
+        return instance_;
+    }
 
 private:
     T &operator=(const T &) = delete;
 
-    static T instance_;
 };
-
-template<class T>
-T Singleton<T>::instance_;
 }  // namespace ms
